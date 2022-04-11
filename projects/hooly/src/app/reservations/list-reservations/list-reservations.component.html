@@ -1,0 +1,26 @@
+<lib-button [routerLink]="['/reservations/create']" class="create">
+  Create
+</lib-button>
+<span>{{count}} elements found</span>
+<table id="reservationsTable">
+  <thead>
+    <th>Id</th>
+    <th>Date</th>
+    <th>Truck</th>
+    <th>Location</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{reservation.id}}</td>
+      <td>{{reservation.date|date:'dd/MM/YYYY'}}</td>
+      <td>{{reservation.truck.name}}</td>
+      <td>{{reservation.location.name}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="pagination">
+  <lib-button [style]="'secondary'" (onClick)="onPageChanged(pages[0])" [disabled]="currentPage === pages[0]">First</lib-button>
+  <lib-button [style]="'secondary'" (onClick)="onPageChanged(currentPage - 1)" [disabled]="currentPage === pages[0]">Previous</lib-button>
+  <lib-button [style]="'secondary'" (onClick)="onPageChanged(currentPage + 1)" [disabled]="currentPage === pages[pages.length - 1]">Next</lib-button>
+  <lib-button [style]="'secondary'" (onClick)="onPageChanged(pages[pages.length - 1])" [disabled]="currentPage === pages[pages.length - 1]">Last</lib-button>
+</div>

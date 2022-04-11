@@ -1,0 +1,36 @@
+@import 'colors';
+
+
+.primary-button {
+  background-color: $primary-color;
+  border: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: 900;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+
+  &:active {
+    background-color: $dark-primary-color;
+  }
+
+  &:hover {
+    background-color: $light-primary-color;
+    cursor: pointer;
+  }
+}
+
+.secondary-button {
+  background-color: $background-color;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

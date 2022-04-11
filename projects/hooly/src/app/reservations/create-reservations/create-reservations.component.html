@@ -1,0 +1,30 @@
+<form [formGroup]="form" (submit)="submit()">
+  <div class="formControl">
+    <label [for]="truckInput">Truck*</label>
+    <select formControlName="truck" #truckInput>
+      <option *ngFor="let truck of trucks" [ngValue]="truck">{{truck.name}}</option>
+    </select>
+    <span class="form-error"
+    *ngIf="form.controls['truck'].invalid && (form.dirty || form.controls['truck'].touched)">
+    Error on the truck</span>
+  </div>
+  <div class="formControl">
+    <label [for]="locationInput">Location*</label>
+    <select formControlName="location" #locationInput>
+      <option *ngFor="let location of locations" [ngValue]="location">{{location.name}}</option>
+    </select>
+    <span class="form-error"
+    *ngIf="form.controls['location'].invalid && (form.dirty || form.controls['location'].touched)">
+    Error on the location</span>
+  </div>
+  <div class="formControl">
+    <label [for]="dateInput">Date*</label>
+    <input type="date" formControlName="date" #dateInput>
+    <span class="form-error"
+    *ngIf="form.controls['date'].invalid && (form.dirty || form.controls['date'].touched)">Error on the date</span>
+  </div>
+  <div class="buttons">
+    <lib-button [style]="'secondary'" [routerLink]="['/reservations']">back</lib-button>
+    <lib-button type="submit">submit</lib-button>
+  </div>
+</form>
