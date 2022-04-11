@@ -33,7 +33,9 @@ export class CreateReservationsComponent implements OnInit {
   }
 
   submit() {
-    this.form.markAsDirty();
+    this.form.controls['date'].markAsDirty();
+    this.form.controls['truck'].markAsDirty();
+    this.form.controls['location'].markAsDirty();
     if (this.form.invalid) {
       return;
     }
